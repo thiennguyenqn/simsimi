@@ -3,21 +3,15 @@
 # https://www.facebook.com/kuro2404
 # main link: https://domain.com/api_simsimi.php?key=key&ask=text
 #   example: https://8vi.us/api_simsimi.php?key=jkuroshinichi&ask=ahihi
-
 $ask = $_GET['ask'];
 $key = 'jkuroshinichi'; // Key custom
-
-$keysimsimi = '3de302f3-e7de-4221-86cc-658936609dc3'; // paste key simsimi here ! => http://developer.simsimi.com/signUp
-
-
+$keysimsimi = 'f1956be2-db54-4793-8afb-38a55e59aa90'; // paste key simsimi here ! => http://developer.simsimi.com/signUp
+if ($_GET['key'] == $key) {
 	$url = 'http://sandbox.api.simsimi.com/request.p?key=' . $keysimsimi . '&lc=vn&ft=1.0&text=' . urlencode($ask);
 										#lc=your_country example: en - english , vietnam - vn,...
 	$result = file_get_contents($url);
-
 	$vars = json_decode($result, true);
-
 	$check = $vars['result'];
-
 	if ($check == 100) {
 		$aws = $vars['response'];
 		echo '{"messages": [{"text": "' . $aws . '"}]}';
@@ -30,4 +24,4 @@ $keysimsimi = '3de302f3-e7de-4221-86cc-658936609dc3'; // paste key simsimi here 
 	} else {
 		echo '{"messages": [{"text": "Server Error !"}]}';
 	}
-
+}
