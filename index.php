@@ -8,7 +8,7 @@ $ask = $_GET['ask'];
 $key = 'jkuroshinichi'; // Key custom
 
 $keysimsimi = '3de302f3-e7de-4221-86cc-658936609dc3'; // paste key simsimi here ! => http://developer.simsimi.com/signUp
-if ($_GET['key'] == $key) {
+
 
 	$url = 'http://sandbox.api.simsimi.com/request.p?key=' . $keysimsimi . '&lc=vn&ft=1.0&text=' . urlencode($ask);
 										#lc=your_country example: en - english , vietnam - vn,...
@@ -30,4 +30,4 @@ if ($_GET['key'] == $key) {
 	} else {
 		echo '{"messages": [{"text": "Server Error !"}]}';
 	}
-}
+
